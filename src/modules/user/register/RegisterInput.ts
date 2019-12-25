@@ -1,5 +1,6 @@
 import { Length, IsEmail } from "class-validator";
 import { Field, InputType } from "type-graphql";
+import { IsEmailUnique } from "./IsEmailUnique";
 
 @InputType()
 export class RegisterInput {
@@ -12,7 +13,8 @@ export class RegisterInput {
     lastName: string;
 
     @Field()
-    @IsEmail() 
+    @IsEmail()
+    @IsEmailUnique() 
     email: string;
 
     @Field() 
